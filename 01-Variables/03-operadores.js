@@ -59,6 +59,26 @@ const respuestaMenoresADiez =
 const respuestaMenoresADiezFilter =
     arreglo.map((x) => (x/2)+7).filter((y)=> y< 8);
 
+const respuestaFind =
+    arreglo.find( //
+        (valorActual) => {
+            return valorActual === 10;
+        });
+
+const respuestaFindIndex =
+    arreglo.findIndex( //
+        (valorActual) => {
+            return valorActual === 10;
+        });
+
+const respuestaReduce =
+    arreglo.reduce( //
+        (valorInicial, valorActual, indice, arreglo) => {
+            return valorInicial + valorActual;
+        }, 0) // Valor inicial
+;
+
+
 console.log('respuesta Map: ', respuestaMat);
 console.log('arreglo: ', arreglo);
 console.log('respuesta Map 2: ', respuestaMap2);
@@ -66,6 +86,9 @@ console.log('respuesta filter: ', respuestaFilter);
 console.log('respuesta some: ', respuestaSome);
 console.log('respuesta every: ', respuestaEvery);
 console.log('Respuesta menores a 8= ',respuestaMenoresADiezFilter);
+console.log('Respuesta Find= ', respuestaFind);
+console.log('Respuesta FindIndex= ', respuestaFindIndex);
+console.log('Respuesta Reduce= ', respuestaReduce);
 
 // a todos los numeros le dividan para 2 y le sumen 7 y quiero
 // saber si hay algun numero menor a 8
