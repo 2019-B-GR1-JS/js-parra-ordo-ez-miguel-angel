@@ -62,20 +62,20 @@ const respuestaMenoresADiezFilter =
 const respuestaFind =
     arreglo.find( //
         (valorActual) => {
-            return valorActual === 10;
+            return valorActual === 11;
         });
 
 const respuestaFindIndex =
     arreglo.findIndex( //
         (valorActual) => {
-            return valorActual === 10;
+            return valorActual === 13;
         });
 
 const respuestaReduce =
     arreglo.reduce( //
         (valorInicial, valorActual, indice, arreglo) => {
             return valorInicial + valorActual;
-        }, 0) // Valor inicial
+        }, 4) // Valor inicial
 ;
 
 
