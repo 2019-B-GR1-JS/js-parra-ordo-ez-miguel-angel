@@ -41,7 +41,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.05-callbacks.js">
+  <component name="RunManager" selected="Node.js.deber-Operadores-Locales.js">
     <configuration name="02-objetos.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="02-objetos.js" working-dir="$PROJECT_DIR$/01-Variables">
       <method v="2" />
     </configuration>
@@ -54,8 +54,12 @@
     <configuration name="05-callbacks.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="05-callbacks.js" working-dir="$PROJECT_DIR$/01-Variables">
       <method v="2" />
     </configuration>
+    <configuration name="deber-Operadores-Locales.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="deber-Operadores-Locales.js" working-dir="$PROJECT_DIR$/01-Variables">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.deber-Operadores-Locales.js" />
         <item itemvalue="Node.js.05-callbacks.js" />
         <item itemvalue="Node.js.03-operadores.js" />
         <item itemvalue="Node.js.04-Funciones.js" />
@@ -77,6 +81,7 @@
       <workItem from="1571616312804" duration="10218000" />
       <workItem from="1571700643753" duration="12132000" />
       <workItem from="1572037203093" duration="7180000" />
+      <workItem from="1572136303057" duration="13085000" />
     </task>
     <servers />
   </component>
