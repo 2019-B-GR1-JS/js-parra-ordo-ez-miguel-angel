@@ -18,6 +18,9 @@ const resultadoCalculo = calculo(
     (numUno, numDos, total) => {
         return total/2
     });
+
+
 console.log('Resultado calculo: ', resultadoCalculo);
+
 
 
