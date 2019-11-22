@@ -12,6 +12,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -23,6 +24,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\03-angular\componentes\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -82,7 +85,10 @@
       <workItem from="1571700643753" duration="12132000" />
       <workItem from="1572037203093" duration="7180000" />
       <workItem from="1572136303057" duration="15808000" />
-      <workItem from="1572296693798" duration="6339000" />
+      <workItem from="1572296693798" duration="6371000" />
+      <workItem from="1572311520037" duration="3389000" />
+      <workItem from="1574110466063" duration="7220000" />
+      <workItem from="1574457339974" duration="3585000" />
     </task>
     <servers />
   </component>
