@@ -75,12 +75,9 @@ promesaleerArchivo
 const nombreArhivo = './05-callbacks.js';
 console.log('INICIA SINCRONO');
 try{
-
 const contenidoArchivo= fs.readFileSync(nombreArhivo, 'utf-8')
     console.log(contenidoArchivo);
     console.log('Se leyo sincronamente');
-
-
 } catch (error){
 console.log('Error: ', error);
 }
