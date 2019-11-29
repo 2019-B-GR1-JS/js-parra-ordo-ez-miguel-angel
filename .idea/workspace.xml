@@ -23,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\03-angular\componentes\node_modules\typescript\lib" />
   </component>
@@ -89,6 +89,12 @@
       <workItem from="1572311520037" duration="3389000" />
       <workItem from="1574110466063" duration="7220000" />
       <workItem from="1574457339974" duration="3585000" />
+      <workItem from="1574644490584" duration="6995000" />
+      <workItem from="1574725250837" duration="10744000" />
+      <workItem from="1574822476722" duration="3393000" />
+      <workItem from="1574913192442" duration="3797000" />
+      <workItem from="1574980723517" duration="292000" />
+      <workItem from="1574981042771" duration="14000" />
     </task>
     <servers />
   </component>

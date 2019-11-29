@@ -21,16 +21,16 @@ let fecha: Date // Date -> Clase
                 // Tipo de dato "Date"
 fecha = new Date(); // new date es una instancia
 let adrian: Estudiante;
-
+interface Estudiante{
+    nombre: string;
+    edad: number;
+}
 adrian = {
     nombre: 'Miguel',
     edad: 18,
 };
 
-interface Estudiante{
-    nombre: string;
-    edad: number;
-}
+
 
 
 function holaMundo(): void { // void porque no devuelve nada
