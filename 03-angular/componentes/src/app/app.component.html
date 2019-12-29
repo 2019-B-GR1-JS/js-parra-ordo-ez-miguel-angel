@@ -5,23 +5,36 @@
 </style>
 <h1>Inicio</h1>
 
-<app-mi-primer-componente
-[titulo]="arregloObjetos[0].apellido"
-[textoImagen]="arregloObjetos[0].nombre"
-[textoBoton]="arregloObjetos[0].sueldo.toString()"
-[imagen]="arregloObjetos[0].comida"
-(cambioSueldo)="imprimirSueldo($event)"
-></app-mi-primer-componente>
 
-<app-mi-primer-componente
-  [titulo]="arregloObjetos[1].apellido"
-  [textoImagen]="arregloObjetos[1].nombre"
-  [textoBoton]="arregloObjetos[1].sueldo.toString()"
-  [imagen]="arregloObjetos[1].comida"
-></app-mi-primer-componente>
-<app-mi-primer-componente
-  [titulo]="arregloObjetos[2].apellido"
-  [textoImagen]="arregloObjetos[2].nombre"
-  [textoBoton]="arregloObjetos[2].sueldo.toString()"
-  [imagen]="arregloObjetos[2].comida"
-></app-mi-primer-componente>
+<h2>Directivas</h2>
+<p *ngIf="true">SI</p>
+<p *ngIf="false">NO</p>
+<!-- // le quita -->
+<div [hidden]="true">
+  ESTOY OCULTO NO ELIMINADO
+</div>
+
+<ul>
+  <li *ngFor="let nombreVariable of arregloObjetos">
+    <button>
+a
+    </button>
+    <a href="`">LINK</a>
+  <p>ALOOO</p>
+  <p>{{nombreVariable.nombre}}</p>
+    <app-mi-primer-componente
+      [titulo]="nombreVariable.apellido"
+      [textoImagen]="nombreVariable.nombre"
+      [textoBoton]="nombreVariable.sueldo.toString()"
+      [imagen]="nombreVariable.comida"
+      (cambioSueldo)="imprimirSueldo($event)"
+    ></app-mi-primer-componente>
+  </li>
+
+</ul>
+
+
+<h2>PIPES!</h2>
+{{fecha | date:'yyyy/MM/dd'}}
+{{sueldo | currency}}
+{{universidad | uppercase}}

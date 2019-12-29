@@ -2,7 +2,7 @@
   "name": "componentes",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "elcomandazo": "dir",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",

@@ -23,9 +23,9 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\03-angular\componentes\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\04-Ionic\comida\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -95,6 +95,11 @@
       <workItem from="1574913192442" duration="3797000" />
       <workItem from="1574980723517" duration="292000" />
       <workItem from="1574981042771" duration="14000" />
+      <workItem from="1575924929713" duration="214000" />
+      <workItem from="1576271090391" duration="5970000" />
+      <workItem from="1577156537288" duration="2369000" />
+      <workItem from="1577301050612" duration="12277000" />
+      <workItem from="1577643570609" duration="1815000" />
     </task>
     <servers />
   </component>
