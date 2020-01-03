@@ -11,36 +11,124 @@
   <!-- 1) Importar el modulo de formularios -->
   <form (ngSubmit)="crearUsuario(usuarioFormularrio)"
         #usuarioFormularrio="ngForm">
-    {{usuario.nombre}}
     <!-- Variable de template -->
     <!-- <h1 #padre>papá</h1> -->
-    <input type="text"
-           name="nombre"
-           required
-           [(ngModel)] = "usuario.nombre"
-           #nombreInput = "ngModel">
-    <br>
-    Valid {{nombreInput.valid}}
-    <br>
-    Invalid {{nombreInput.invalid}}
-    <br>
-    Touch {{nombreInput.touched}}
-    <br>
-    Untoched {{nombreInput.untouched}}
-    <br>
-    Disabled {{nombreInput.disabled}}
-    <br>
-    Enabled {{nombreInput.enabled}}
-    <br>
-    Pristine {{nombreInput.pristine}}
-    <br>
-    Dirty {{nombreInput.dirty}}
-    <pre>
-      Errors {{nombreInput.errors | json}}
-    </pre>
 
-
-    <button [disabled]="usuarioFormularrio.invalid">Aceptar</button>
+    <ion-item>
+      <h1>Formulario</h1>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input
+              type="text"
+              name="nombre"
+              required
+              placeholder="Ej: Mike"
+              title="Llenar el nombre"
+              minlength="3"
+              maxlength="15"
+              [(ngModel)] = "usuario.nombre"
+              #nombreInput = "ngModel"></ion-input>
+    </ion-item>
+    <!--
+     <p>Valid {{nombreInput.valid}} </p>
+    <p> Invalid {{nombreInput.invalid}} </p>
+     <p>Touch {{nombreInput.touched}} </p>
+     <p> Untoched {{nombreInput.untouched}} </p>
+     <p>Disabled {{nombreInput.disabled}} </p>
+     <p>Enabled {{nombreInput.enabled}} </p>
+     <p> Pristine {{nombreInput.pristine}} </p>
+     <p> Dirty {{nombreInput.dirty}}
+     <h3>Errores</h3>
+     <pre>
+       {{nombreInput.errors | json}}
+     </pre>
+ -->
+    <div *ngIf="nombreInput.touched && nombreInput.dirty && nombreInput.errors">
+      <p *ngIf="nombreInput.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="nombreInput.errors.minlength ">
+        llenar con un minimo de 2 caracteres
+      </p>
+      <p *ngIf="nombreInput.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
+    <ion-item>
+      <ion-label>Correo: </ion-label>
+      <ion-input type="text"
+                 name="correo"
+                 email=""
+                 required
+                 placeholder="Ej: miguel@hotmail.com"
+                 title="Llenar el correo"
+                 [(ngModel)] = "usuario.correo"
+                 #correoInput = "ngModel"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Edad: </ion-label>
+      <ion-input type="number"
+                 name="edad"
+                 pattern="([0-9])+"
+                 placeholder="Ej: 20"
+                 title="Llenar la edad"
+                 min="0"
+                 max="150"
+                 [(ngModel)] = "usuario.edad"
+                 #edadInput = "ngModel">
+      </ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Password: </ion-label>
+      <ion-input type="password"
+                 name="password"
+                 pattern="([0-9])+"
+                 placeholder="Ej: clavesecreta123"
+                 title="Llenar el password"
+                 required=""
+                 [(ngModel)] = "usuario.password"
+                 #passwordInput = "ngModel">
+      </ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Conf. Password: </ion-label>
+      <ion-input type="password"
+                 name="passwordConfirmacion"
+                 pattern="([0-9])+"
+                 placeholder="Ej: clavesecreta123"
+                 required=""
+                 title="Llenar la confirmacion del password"
+                 [(ngModel)] = "usuario.passwordConfirmacion"
+                 #passwordConfirmacionInput = "ngModel">
+      </ion-input>
+    </ion-item>
+    <br>
+    <div *ngIf="passwordInput.touched && passwordInput.dirty &&
+passwordConfirmacionInput.touched && passwordConfirmacionInput.dirty">
+    <p *ngIf="validarPasswordsIguales()">
+      Las passwords no coinciden.
+    </p>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2"></ion-col>
+        <ion-col size="8">
+          <ion-button color="success" [disabled]="usuarioFormularrio.invalid && validarPasswordsIguales() " expand="block" >Aceptar</ion-button>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
 </ion-content>
