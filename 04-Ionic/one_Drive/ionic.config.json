@@ -1,0 +1,7 @@
+{
+  "name": "google_Drive",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

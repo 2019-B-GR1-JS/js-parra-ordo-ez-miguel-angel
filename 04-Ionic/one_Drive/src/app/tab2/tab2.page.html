@@ -1,0 +1,67 @@
+<ion-header style="background-color: #3171e0">
+    <ion-toolbar color="#3171e0" style="color: white">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="1">
+                    <ion-icon style="font-size: 200%" color="hight" name="briefcase"></ion-icon>
+                </ion-col>
+                <ion-col size="9">
+                    <ion-title > {{titulo}}</ion-title>
+                    <ion-title class="subtitle"> {{subtitulo}}</ion-title>
+                </ion-col>
+                <ion-col size="1">
+                    <ion-icon style="align-items: center; font-size: 200%" color="higth" name="add"></ion-icon>
+                </ion-col>
+                <ion-col size="1">
+                    <ion-icon style="font-size: 200%; align-items: center" color="higth" name="search"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="10">
+                <font size="3" >De A a Z </font>
+                <ion-icon style="font-size: 100%; align-items: center" color="higth" name="arrow-down"></ion-icon>
+            </ion-col>
+            <ion-col size="1">
+                <ion-icon style="font-size: 150%; align-items: center" color="higth" name="list"></ion-icon>
+            </ion-col>
+            <ion-col size="1">
+                <ion-icon style="font-size: 150%; align-items: center" color="higth" name="grid"></ion-icon>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-list>
+                <ion-item *ngFor="let archivo of archivos">
+                    <ion-col size="2">
+                        <ion-img style="width: 85%" [src]=archivo.icono></ion-img>
+                    </ion-col>
+                    <ion-col size="9">
+                        <ion-col size="10">
+                            <font size="3">{{archivo.nombre}}</font>
+                        </ion-col>
+                        <ion-col size="2"></ion-col>
+                        <ion-row>
+                            <ion-col size="10">
+                                <ion-icon *ngIf="archivo.compartido" style="font-size: 75%" color="medium" name="contacts"></ion-icon>
+                                <font size="2" color="gray"> {{archivo.tamanio}} MB  · {{archivo.fecha}}</font>
+                            </ion-col>
+                            <ion-col size="2"></ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-icon style="font-size: 150%" color="hight" name="md-more"></ion-icon>
+                    </ion-col>
+                </ion-item>
+            </ion-list>
+        </ion-row>
+    </ion-grid>
+</ion-content>
