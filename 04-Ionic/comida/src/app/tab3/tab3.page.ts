@@ -23,7 +23,7 @@ export class Tab3Page {
   }
 
   validarPasswordsIguales(): boolean {
-    if (this.usuario.password === this.usuario.passwordConfirmacion ) {
+    if (this.usuario.password === this.usuario.passwordConfirmacion && this.usuario.password  !== '' && this.usuario.passwordConfirmacion !== '') {
       return false
     } else {
       return true;

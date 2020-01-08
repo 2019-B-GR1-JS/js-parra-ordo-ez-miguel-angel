@@ -23,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Proyecto-JavaScript-Temperatura" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\04-Ionic\one_Drive\node_modules\typescript\lib" />
   </component>
@@ -104,7 +104,11 @@
       <workItem from="1577301050612" duration="12277000" />
       <workItem from="1577643570609" duration="15831000" />
       <workItem from="1577991973642" duration="25930000" />
-      <workItem from="1578085343608" duration="7303000" />
+      <workItem from="1578085343608" duration="7594000" />
+      <workItem from="1578106409759" duration="4646000" />
+      <workItem from="1578187374679" duration="936000" />
+      <workItem from="1578344488744" duration="4492000" />
+      <workItem from="1578455379865" duration="4858000" />
     </task>
     <servers />
   </component>
