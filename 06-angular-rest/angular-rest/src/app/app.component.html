@@ -1,0 +1,94 @@
+<table border="">
+  <tr> <!-- table row -->
+    <th>Nombre</th> <!-- table header -->
+    <th>Apellido</th>
+    <th>Correo</th>
+    <th>Password</th>
+    <th>Acciones</th>
+  </tr>
+  <tr>
+    <td>Adrian</td> <!-- table data-->
+    <td>Eguez</td>
+    <td>adrian@gmail.com</td>
+    <td>Adrian12345</td>
+  </tr>
+</table>
+<br>
+<br>
+
+<table border="">
+  <tr> <!-- table row -->
+    <th>Nombre</th> <!-- table header -->
+    <th>Apellido</th>
+    <th>Correo</th>
+    <th>Password</th>
+    <th>ACCIONES</th>
+  </tr>
+  <tr *ngFor="let nombreVariable of usuarios">
+    <td>{{nombreVariable.nombre}}</td>
+    <td>{{nombreVariable.apellido}}</td>
+    <td>{{nombreVariable.correo}}</td>
+    <td>{{nombreVariable.password}}</td>
+    <td>
+      <p-button label='EDITAR' (click)="editar(nombreVariable)"></p-button>
+      <p-button label="ELIMINAR" (click)="eliminar(nombreVariable)"></p-button>
+    </td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+<p-table [value]="usuariosFiltrados()"
+         [paginator]="true"
+         [rows]="Filas">
+  <ng-template pTemplate="caption"> Lista de Usuarios </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Correo</th>
+      <th>Password</th>
+      <th>Acciones</th>
+    </tr>
+    <tr>
+      <th><input type="text" pInputText name="nombre"
+                 [(ngModel)]="nombreFiltrado"/></th>
+      <th><input type="text" pInputText name="apellido"
+                 [(ngModel)]="apellidoFiltrado"/></th>
+      <th><input type="text" pInputText name="correo"
+                 [(ngModel)]="correoFiltrado"/></th>
+      <th><input type="text" pInputText name="password"
+                 [(ngModel)]="passwordFiltrado"/></th>
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-usuario>
+    <tr>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.apellido}}</td>
+      <td>{{usuario.correo}}</td>
+      <td>{{usuario.password}}</td>
+      <td>
+        <p-button label='EDITAR' (click)="editar(usuario)"></p-button>
+        <p-button label="ELIMINAR" (click)="eliminar(usuario)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>
+
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+  </mat-form-field>
+</form>
+
+
+
+<router-outlet></router-outlet>
+
+
+
