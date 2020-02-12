@@ -25,14 +25,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Proyecto-JavaScript-Temperatura" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\06-angular-rest\angular-rest\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\04-Ionic\comida\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\06-angular-rest\angular-rest\src\app\services" />
+      <recent name="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel\04-Ionic\one_Drive\src\app\imagenes" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\miguel.parra\Documents\Octavo\JavaScript\github\js-parra-ordo-ez-miguel-angel" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -111,6 +112,16 @@
       <workItem from="1578455379865" duration="4860000" />
       <workItem from="1578786488240" duration="11302000" />
       <workItem from="1578969587044" duration="12097000" />
+      <workItem from="1579296017912" duration="6217000" />
+      <workItem from="1579565326251" duration="10413000" />
+      <workItem from="1579816838105" duration="16295000" />
+      <workItem from="1580157871985" duration="7161000" />
+      <workItem from="1580170075114" duration="11343000" />
+      <workItem from="1580271993490" duration="859000" />
+      <workItem from="1580504505621" duration="174000" />
+      <workItem from="1580705115926" duration="639000" />
+      <workItem from="1581032780052" duration="11538000" />
+      <workItem from="1581357647760" duration="921000" />
     </task>
     <servers />
   </component>

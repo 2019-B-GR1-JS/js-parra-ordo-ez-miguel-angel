@@ -20,6 +20,13 @@ module.exports = {
     password: {
       type: 'string'
     },
+    rol: {
+      type: 'string'
+    },
+    librosDelUsuario:{
+      collection:'libros', //nombre del modelo
+      via: 'idUsuario' //Nombre campos Foreign Key tabla hijo
+    }
 
 
 
