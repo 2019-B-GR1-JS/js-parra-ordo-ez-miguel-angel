@@ -1,0 +1,49 @@
+<h1 mat-dialog-title *ngIf="data">EDITAR POKEMON</h1>
+<h1 mat-dialog-title *ngIf="crear">CREAR POKEMON</h1>
+
+<div mat-dialog-content>
+  <form #formularioEditar="ngForm" >
+    <div>
+      <label for="nombreId">Nombre: </label>
+      <input id="nombreId"
+             type="text"
+             name="nombre"
+             [(ngModel)]="nombre">
+    </div><br>
+    <div>
+      <label for="apellidoId">Apellido: </label>
+      <input id="apellidoId"
+             type="text"
+             name="apellido"
+             [(ngModel)]="apellido">
+    </div><br>
+    <div>
+      <label for="fechaNacimiento">Fecha de nacimiento: </label>
+      <input id="fechaNacimiento"
+             type="text"
+             name="fechaNacimiento"
+             [(ngModel)]="fechaNacimiento">
+    </div><br>
+    <div>
+      <label for="numeroMedalla">Numero de medallas: </label>
+      <input id="numeroMedalla"
+             type="text"
+             name="numeroMedalla"
+             [(ngModel)]="numeroMedalla">
+    </div><br>
+    <div>
+      <label for="campeonActual">Campeon actual: </label>
+      <input id="campeonActual"
+             type="text"
+             name="campeonActual"
+             [(ngModel)]="campeonActual">
+    </div><br>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <p-button label="Cancelar" styleClass="ui-button-secondary"
+            (onClick)="cancelar()"></p-button>
+  <p-button label="Aceptar" styleClass="ui-button-sucess"
+            (onClick)="aceptar()"></p-button>
+</div>
+

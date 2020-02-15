@@ -1,0 +1,62 @@
+<h1 mat-dialog-title *ngIf="data.pokemon">EDITAR POKEMON</h1>
+<h1 mat-dialog-title *ngIf="crear">CREAR POKEMON</h1>
+
+<div mat-dialog-content>
+  <form #formularioEditar="ngForm" >
+    <div>
+      <label for="numeroId">Numero: </label>
+      <input id="numeroId"
+             type="number"
+             name="numero"
+             [(ngModel)]="numero">
+    </div><br>
+    <div>
+      <label for="nombreId">Nombre: </label>
+      <input id="nombreId"
+             type="text"
+             name="nombre"
+             [(ngModel)]="nombre">
+    </div><br>
+    <div>
+      <label for="poderUnoId">Poder Uno: </label>
+      <input id="poderUnoId"
+             type="text"
+             name="poderUno"
+             [(ngModel)]="poderUno">
+    </div><br>
+    <div>
+      <label for="poderDos">Poder Dos: </label>
+      <input id="poderDos"
+             type="text"
+             name="poderDos"
+             [(ngModel)]="poderDos">
+    </div><br>
+    <div>
+      <label for="fechaCapturaId">Fecha Captura: </label>
+      <input id="fechaCapturaId"
+             type="text"
+             name="fechaCaptura"
+             [(ngModel)]="fechaCaptura">
+    </div><br>
+    <div>
+      <label for="nivelId">Nivel: </label>
+      <input id="nivelId"
+             type="text"
+             name="nivel"
+             [(ngModel)]="nivel">
+    </div><br>
+    <div>
+      <label for="precioId">Precio: </label>
+      <input id="precioId"
+             type="text"
+             name="precio"
+             [(ngModel)]="precio">
+    </div><br>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <p-button label="Cancelar" styleClass="ui-button-secondary"
+            (onClick)="cancelar()"></p-button>
+  <p-button label="Aceptar" styleClass="ui-button-sucess"
+            (onClick)="aceptar()"></p-button>
+</div>
