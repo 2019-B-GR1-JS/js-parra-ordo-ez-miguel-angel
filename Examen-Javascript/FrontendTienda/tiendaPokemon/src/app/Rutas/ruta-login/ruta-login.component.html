@@ -1,27 +1,50 @@
-<form #formularioEditar="ngForm">
-  <div>
-    <label for="correoId">
-      Correo
-    </label>
-    <input id="correoId"
-           type="text"
-           name="correo"
-           [(ngModel)]="correo"
-    >
+<br><br><br>
+<div class="ui-g">
+  <div class="ui-g-4" >
   </div>
-
-  <div>
-    <label for="passwordId">
-      Password
-    </label>
-    <input id="passwordId"
-           type="password"
-           name="password"
-           [(ngModel)]="password"
-    >
+  <div class="ui-g-4" >
+    <p-card header="BIENVENIDO">
+      <form #formularioEditar="ngForm">
+        <div>
+          <label for="correoId">
+            Correo:
+          </label>
+          <input id="correoId"
+                 type="text"
+                 name="correo"
+                 [(ngModel)]="correo"
+                 style="width: 100%; height: 200%"
+          >
+        </div>
+        <br>
+        <div>
+          <label for="passwordId">
+            Password:
+          </label>
+          <br>
+          <input id="passwordId"
+                 type="password"
+                 name="password"
+                 [(ngModel)]="password"
+                 style="width: 100%; height: 200%"
+          >
+        </div>
+        <br>
+        <div class="ui-g">
+          <div class="ui-g-1"></div>
+          <div class="ui-g-5">
+            <p-button label="Sign in"  styleClass="ui-button-success"
+                      (onClick)="login()"></p-button>
+          </div>
+          <div class="ui-g-5">
+            <p-button label="Sign up"  styleClass="ui-button-primary"
+                      (onClick)="registrar()"></p-button>
+          </div>
+          <div class="ui-g-1"></div>
+        </div>
+      </form>
+    </p-card>
+    <div class="ui-g-4"></div>
   </div>
-</form>
-<p-button label="Login" styleClass="ui-button-sucess"
-          (onClick)="login()"></p-button>
-
-
+</div>
+<router-outlet></router-outlet>

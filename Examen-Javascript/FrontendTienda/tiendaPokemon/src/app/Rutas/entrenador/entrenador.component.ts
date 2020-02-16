@@ -132,27 +132,27 @@ export class EntrenadorComponent implements OnInit {
       );
   }
   editarEntrenadorHttp(id, datosEditar) {
-      const entrenadorEditado$ = this._entrenadorRestService
-        .editar(id, datosEditar);
-      entrenadorEditado$
-        .subscribe(
-          (entrenadorEdit: any) => {
-            console.log('Usuario editado: ', entrenadorEdit);
-            const indice = this.entrenadores
-              .findIndex(
-                (entrenador) => {
-                  return entrenador.id === id;
-                }
-              );
-            this.entrenadores[indice].nombre = datosEditar.nombre;
-            this.entrenadores[indice].apellido = datosEditar.apellido;
-            this.entrenadores[indice].fechaNacimiento = datosEditar.fechaNacimiento;
-            this.entrenadores[indice].numeroMedalla = datosEditar.numeroMedalla;
-            this.entrenadores[indice].campeonActual = datosEditar.campeonActual;
-          },
-          (error) => {
-            console.log('Error: ', error);
-          }
-        );
+    const entrenadorEditado$ = this._entrenadorRestService
+      .editar(id, datosEditar);
+    entrenadorEditado$
+      .subscribe(
+        (entrenadorEdit: any) => {
+          console.log('Usuario editado: ', entrenadorEdit);
+          const indice = this.entrenadores
+            .findIndex(
+              (entrenador) => {
+                return entrenador.id === id;
+              }
+            );
+          this.entrenadores[indice].nombre = datosEditar.nombre;
+          this.entrenadores[indice].apellido = datosEditar.apellido;
+          this.entrenadores[indice].fechaNacimiento = datosEditar.fechaNacimiento;
+          this.entrenadores[indice].numeroMedalla = datosEditar.numeroMedalla;
+          this.entrenadores[indice].campeonActual = datosEditar.campeonActual;
+        },
+        (error) => {
+          console.log('Error: ', error);
+        }
+      );
   }
 }

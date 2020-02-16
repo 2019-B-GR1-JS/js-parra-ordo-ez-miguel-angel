@@ -1,4 +1,4 @@
-const arreglo = [1,2,3,4,5,6,7,8,9,10];
+const arreglo = [];
 console.log('arreglo',arreglo);
 arreglo.push(11);
 console.log('arreglo',arreglo);
@@ -12,6 +12,7 @@ const respuestaIndice = arreglo.indexOf(4);
 console.log(respuestaIndice);
 arreglo.splice(respuestaIndice,1,);
 console.log(arreglo);
+
 
 
 // no se puede reasignar una variable constante o de lectura

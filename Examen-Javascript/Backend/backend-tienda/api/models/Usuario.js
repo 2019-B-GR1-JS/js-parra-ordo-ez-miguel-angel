@@ -8,15 +8,20 @@
 module.exports = {
 
   attributes: {
-
+    nickname: {
+      type: 'string'
+    },
     nombre: {
       type: 'string'
     },
-    papellido: {
+    apellido: {
       type: 'string'
     },
     correo: {
       type: 'string'
+    },
+    edad: {
+      type: 'number'
     },
     password: {
       type: 'string'
@@ -29,7 +34,7 @@ module.exports = {
       via: 'idUsuario'
     }
 
-},
+  },
 
 };
 

@@ -1,0 +1,137 @@
+<h1 mat-dialog-title>REGISTRAR USUARIO</h1>
+
+<form #formularioEditar="ngForm">
+  <div mat-dialog-content>
+    <div class="ui-g">
+      <div class="ui-g-3"></div>
+      <div class="ui-g-6">
+        <label for="nicknameId">
+          Nickname:
+        </label>
+        <input id="nicknameId"
+               type="text"
+               name="nickname"
+               required
+               placeholder="Ej: Mikets"
+               title="Llenar el nickname"
+               minlength="3"
+               maxlength="15"
+               [(ngModel)]="nickname"
+               style="width: 100%; height: 90%">
+      </div>
+      <div class="ui-g-3"></div>
+    </div>
+    <br>
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <label for="nombreId">
+          Nombre:
+        </label>
+        <input id="nombreId"
+               type="text"
+               name="nombre"
+               required
+               placeholder="Ej: Miguel"
+               title="Llenar el Nombre"
+               minlength="3"
+               maxlength="15"
+               [(ngModel)]="nombre"
+               style="width: 100%; height: 90%">
+      </div>
+      <div class="ui-g-6">
+        <label for="apellidoId">
+          Apellido:
+        </label>
+        <input id="apellidoId"
+               type="text"
+               name="apellido"
+               required
+               placeholder="Ej: Parra"
+               title="Llenar el Apellido"
+               minlength="3"
+               maxlength="15"
+               [(ngModel)]="apellido"
+               style="width: 100%; height: 90%">
+      </div>
+    </div>
+    <br>
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <label for="correoId">
+          Correo:
+        </label>
+        <input id="correoId"
+               type="text"
+               name="correo"
+               email="true"
+               required
+               placeholder="Ej: miguel@hotmail.com"
+               title="Llenar el correo"
+               [(ngModel)]="correo"
+               style="width: 100%; height: 90%">
+      </div>
+      <div class="ui-g-6">
+        <label for="edadId">
+          Edad:
+        </label>
+        <input id="edadId"
+               type="number"
+               name="edad"
+               pattern="([0-9])+"
+               required
+               placeholder="Ej: 20"
+               title="Llenar la edad"
+               min="0"
+               max="120"
+               [(ngModel)]="edad"
+               style="width: 100%; height: 90%">
+      </div>
+    </div>
+    <br>
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <label for="passwordId">
+          Password:
+        </label>
+        <input id="passwordId"
+               type="password"
+               name="password"
+               required
+               placeholder="Ej: clavesecreta123"
+               title="Llenar el password"
+               [(ngModel)]="password"
+               style="width: 100%; height: 90%">
+      </div>
+      <div class="ui-g-6">
+        <label for="passwordConfId">
+          Conf. Password:
+        </label>
+        <input id="passwordConfId"
+               type="password"
+               name="password"
+               required
+               placeholder="Ej: clavesecreta123"
+               title="Llenar la confirmacion de password"
+               [(ngModel)]="passwordConfirmacion"
+               style="width: 100%; height: 90%">
+      </div>
+    </div>
+    <br>
+  </div>
+
+  <div mat-dialog-actions>
+
+    <div class="ui-g-3"></div>
+    <div class="ui-g-2">
+      <p-button label="Cancelar" styleClass="ui-button-secondary"
+      (onClick)="cancelar()"></p-button>
+    </div>
+    <div class="ui-g-1"></div>
+    <div class="ui-g-2">
+      <p-button label="Registrar" styleClass="ui-button-sucess"
+      (onClick)="registrar()"></p-button>
+    </div>
+    <div class="ui-g-3"></div>
+  </div>
+
+</form>

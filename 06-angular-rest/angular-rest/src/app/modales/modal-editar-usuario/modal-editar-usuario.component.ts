@@ -34,7 +34,7 @@ password="";
     this.dialogRef.close();
   }
 
-  aceptar(){
+  aceptar() {
     this.dialogRef.close({
       nombre: this.nombre,
       apellido: this.apellido,

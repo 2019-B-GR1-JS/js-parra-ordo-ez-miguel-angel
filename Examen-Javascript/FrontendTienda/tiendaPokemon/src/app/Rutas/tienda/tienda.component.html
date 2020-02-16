@@ -3,46 +3,112 @@
     <br>
     <p-card header="CABECERA CARRITO">
       <div class="ui-g">
-        <div class="ui-g-4">
-          <input type="text">
+        <div class="ui-g-6" >
+          <label for="nombre">Nombre: </label>
+          <input id="nombre"
+                 type="text"
+                 name="nombre"
+                 disabled=true
+                 placeholder="{{nombre}} {{apellido}}"
+                 style="width: 80%; height: 150%">
         </div>
-        <div class="ui-g-4">Col2</div>
-        <div class="ui-g-4">Col3</div>
+        <div class="ui-g-6" >
+          <label for="direccion">Dirección: </label>
+          <input id="direccion"
+                 type="text"
+                 placeholder=""
+                 name="direccion"
+                 [(ngModel)]="direccion"
+                 style="width: 80%; height: 150%">
+        </div>
       </div>
-
+      <br>
+      <div class="ui-g">
+        <div class="ui-g-4">
+          <label for="fecha">Fecha: </label>
+          <input id="fecha"
+                 type="date"
+                 placeholder=""
+                 name="fecha"
+                 [(ngModel)]="fecha"
+                 style="width: 80%; height: 150%">
+        </div>
+        <div class="ui-g-4">
+          <label for="estado">Estado: </label>
+          <input id="estado"
+                 type="text"
+                 placeholder="{{estado}}"
+                 name="estado"
+                 disabled = true
+                 style="width: 75%; height: 150%">
+        </div>
+        <div class="ui-g-4">
+          <label for="total">Total: </label>
+          <input id="total"
+                 type="text"
+                 placeholder="{{total}}"
+                 name="total"
+                 disabled=true
+                 [(ngModel)]="total"
+                 style="width: 80%; height: 150%">
+        </div>
+      </div>
+      <br>
+      <div class="ui-g">
+        <div class="ui-g-5"></div>
+        <div class="ui-g-2">
+          <p-button label="COMPRAR" styleClass="ui-button-success" (onClick)="guardarCabecera()"></p-button>
+        </div>
+        <div class="ui-g-5"></div>
+      </div>
     </p-card>
     <br>
+
     <p-card header="DETALLE CARRITO">
-      <p-table [value]=""
+      <br>
+      <p-table [value]="detalleTemporal"
                [paginator]="true"
                [rows]="5">
         <ng-template pTemplate="caption">
-          COMPRAS
+          <p-button label="Añadir Compra" (onClick)="mostrarPokemon()"></p-button>
         </ng-template>
         <ng-template pTemplate="header">
           <tr>
-            <th>Numero</th>
-            <th>Nombre</th>
-            <th>Poder Uno</th>
-            <th>Poder Dos</th>
-            <th>Fecha Captura</th>
-            <th>Nivel</th>
+            <th>Pokemon</th>
             <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
             <th>Acciones</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-pokemon>
+        <ng-template pTemplate="body" let-pokemon let-rowIndex="rowIndex">
           <tr>
-            <td>{{pokemon.numero}}</td>
             <td>{{pokemon.nombre}}</td>
-            <td>{{pokemon.poderUno}}</td>
-            <td>{{pokemon.poderDos}}</td>
-            <td>{{pokemon.fechaCaptura}}</td>
-            <td>{{pokemon.nivel}}</td>
             <td>{{pokemon.precio}}</td>
             <td>
-              <p-button label="EDITAR" ></p-button>
-              <p-button label="ELIMINAR" ></p-button>
+              <input id="cantidad"
+                     type="text"
+                     name="cantidad"
+                     placeholder="{{pokemon.cantidad}}"
+                     style="width: 80%; height: 150%"
+                     [(ngModel)]="pokemon.cantidad"
+                     (ngModelChange)="calcularSubtotal(pokemon, rowIndex)"
+              >
+
+            </td>
+            <td>
+              <input id="subtotal"
+                     type="text"
+                     name="subtotal"
+                     placeholder="{{pokemon.subtotal}}"
+                     style="width: 80%; height: 150%"
+                     [(ngModel)]="pokemon.subtotal"
+                     disabled=true
+
+              >
+            </td>
+            <td>
+              <p-button styleClass="ui-button-danger" label="QUITAR" (onClick)="eliminar(rowIndex) " ></p-button>
             </td>
           </tr>
         </ng-template>

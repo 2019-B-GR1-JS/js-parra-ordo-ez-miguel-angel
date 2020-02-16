@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../Services/auth/auth.service";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-usuario',
@@ -6,10 +11,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
+  urlCompra = environment.url + 'cabeceraCarrito';
+  compras = [];
+  filas = 5;
+nombre = '';
+apellido = '';
+correo = '';
+nickname = '';
+edad = 0;
+busquedaFecha = '';
+id = '';
 
-  constructor() { }
+  constructor(
+    private readonly _authService:AuthService,
+    private readonly _httpClient: HttpClient,
+    private readonly _router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.id = this._authService.sesion.id;
+    this.nombre = this._authService.sesion.nombre;
+    this.apellido = this._authService.sesion.apellido;
+    this.correo = this._authService.sesion.correo;
+    this.nickname = this._authService.sesion.nickname;
+    this.edad = this._authService.sesion.edad;
+    const consulta = '?idUsuario=' + this.id;
+    const urlUsuarioCompra = this.urlCompra + consulta;
+    const comprasHechasS = this._httpClient
+      .get(urlUsuarioCompra);
+    comprasHechasS
+      .subscribe(
+        (comprasConsultadas: any[]) => {
+          this.compras = comprasConsultadas;
+        },
+        (error) => {
+          console.error({
+            error: error,
+            mensaje: 'Error consultando compras',
+          });
+        }
+      );
+  }
+  buscar() {
+  }
+  abrirCompra() {
+    this._router.navigate(['/tienda']);
   }
 
 }

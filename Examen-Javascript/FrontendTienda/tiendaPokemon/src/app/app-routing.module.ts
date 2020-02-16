@@ -4,6 +4,9 @@ import {RutaLoginComponent} from "./Rutas/ruta-login/ruta-login.component";
 import {PokemonComponent} from "./Rutas/pokemon/pokemon.component";
 import {EntrenadorComponent} from "./Rutas/entrenador/entrenador.component";
 import {TiendaComponent} from "./Rutas/tienda/tienda.component";
+import {UsuarioComponent} from "./Rutas/usuario/usuario.component";
+import {EstaLogueadoPolicy} from "./politicas/esta-logueado.policy";
+import {EstaLogueadoAdminPolicy} from "./politicas/esta-logueado-admin.policy";
 
 
 const routes: Routes = [
@@ -13,7 +16,10 @@ const routes: Routes = [
   },
   {
     path: 'entrenador',
-    component: EntrenadorComponent
+    component: EntrenadorComponent,
+    canActivate: [
+      EstaLogueadoAdminPolicy
+    ]
   },
   {
     path: 'entrenador/:idEntrenador/pokemon',
@@ -22,6 +28,13 @@ const routes: Routes = [
   {
     path: 'tienda',
     component: TiendaComponent
+  },
+  {
+    path: 'usuario',
+    component: UsuarioComponent,
+    canActivate: [
+      EstaLogueadoPolicy
+    ]
   },
   {
     path: '',

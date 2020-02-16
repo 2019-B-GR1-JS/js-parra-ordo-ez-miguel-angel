@@ -25,6 +25,8 @@ import { UsuarioAdmComponent } from './Rutas/usuario-adm/usuario-adm.component';
 import {TabViewModule} from 'primeng/tabview';
 import {PanelModule} from 'primeng/panel';
 import {CardModule} from 'primeng/card';
+import { ModalSeleccionarPokemonComponent } from './modales/modal-seleccionar-pokemon/modal-seleccionar-pokemon.component';
+import { ModalRegitrarUsuarioComponent } from './modales/modal-regitrar-usuario/modal-regitrar-usuario.component';
 
 
 
@@ -39,9 +41,13 @@ import {CardModule} from 'primeng/card';
     TiendaComponent,
     UsuarioComponent,
     UsuarioAdmComponent,
+    ModalSeleccionarPokemonComponent,
+    ModalRegitrarUsuarioComponent,
   ],
   entryComponents: [
-    ModalEditarPokemonComponent
+    ModalEditarPokemonComponent,
+    ModalEditarEntrenadorComponent,
+    ModalSeleccionarPokemonComponent
   ],
   imports: [
     BrowserModule,
