@@ -44,8 +44,6 @@ crear = false;
   }
 
   aceptar() {
-    console.log('dcfvgbhnjkmdfvghbnjkmcfvghb: ', this.idEntrenador)
-
     this.dialogRef.close({
       numero: this.numero,
       nombre: this.nombre,

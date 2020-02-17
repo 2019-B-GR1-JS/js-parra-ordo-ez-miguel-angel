@@ -4,6 +4,8 @@ import {EntrenadorRestService} from '../../Services/entrenador-rest.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalEditarEntrenadorComponent} from "../../modales/modal-editar-entrenador/modal-editar-entrenador.component";
 import {ModalEditarPokemonComponent} from "../../modales/modal-editar-pokemon/modal-editar-pokemon.component";
+import {UsuarioRestService} from "../../Services/usuario-rest.service";
+import {ModalEditarUsuarioComponent} from "../../modales/modal-editar-usuario/modal-editar-usuario.component";
 
 @Component({
   selector: 'app-entrenador',
@@ -15,20 +17,44 @@ export class EntrenadorComponent implements OnInit {
   filas = 3;
   busquedaEntrenador = '';
   entrenadores = [];
+  usuarios = [];
+  busquedaApellido = '';
   constructor(
     private readonly _httpClient: HttpClient,
     private readonly _entrenadorRestService: EntrenadorRestService,
     private readonly __matDialog: MatDialog,
+    private readonly _usuarioRestService: UsuarioRestService
   ) { }
 
   ngOnInit() {
+    this.consultarEntrenadores();
+    this.consultarUsuarios();
+  }
+  consultarEntrenadores() {
+    const urlUsuario = this.url + '/usuario';
+    const entrenador$ = this._httpClient
+      .get(urlUsuario);
+    entrenador$
+      .subscribe(
+        (usuarios: any[]) => {
+          this.usuarios = usuarios;
+        },
+        (error) => {
+          console.error({
+            error: error,
+            mensaje: 'Error consultando usuario',
+          });
+        }
+      );
+  }
+
+  consultarUsuarios() {
     const urlEntrenador = this.url + '/entrenador';
     const entrenador$ = this._httpClient
       .get(urlEntrenador);
     entrenador$
       .subscribe(
         (entrenadores: any[]) => {
-          console.log('Entrenadores actuales en la base: ', entrenadores);
           this.entrenadores = entrenadores;
         },
         (error) => {
@@ -39,7 +65,6 @@ export class EntrenadorComponent implements OnInit {
         }
       );
   }
-
   ingresar() {
     const matDialogRefModalIngresarEntrenador =  this.__matDialog
       .open(
@@ -92,7 +117,6 @@ export class EntrenadorComponent implements OnInit {
           console.log('Error: ', error);
         }
       );
-
   }
   buscar() {
     const busqueda$ = this._entrenadorRestService
@@ -155,4 +179,88 @@ export class EntrenadorComponent implements OnInit {
         }
       );
   }
+  buscarApellido() {
+    const busqueda$ = this._usuarioRestService
+      .buscar(this.busquedaApellido);
+    busqueda$
+      .subscribe(
+        (usuariosEncontrados) => {
+          this.usuarios = usuariosEncontrados;
+        },
+        (error) => {
+          console.log('Error: ', error);
+        }
+      );
+  }
+  eliminarU(usuario) {
+    const eliminar$ = this._usuarioRestService
+      .eliminar(usuario.id);
+    eliminar$
+      .subscribe(
+        (usuarioEliminado) => {
+          const indice = this.usuarios
+            .findIndex(
+              (usuarioBuscado) => {
+                return usuarioBuscado.id === usuarioEliminado.id;
+              }
+            );
+          this.usuarios.splice(indice, 1);
+        },
+        (error) => {
+          console.log('Error: ', error);
+        }
+      );
+
+  }
+  editarU(usuario) {
+    console.log('Estos datos se recibe del entrenador: ', usuario);
+    const matDialogRefModalEditarUsuario = this.__matDialog
+      .open(
+        ModalEditarUsuarioComponent,
+        {width: '500', data: {usuario}}
+      );
+    const respuestaDialog$ = matDialogRefModalEditarUsuario
+      .afterClosed();
+    respuestaDialog$
+      .subscribe(
+        (datosEditados) => {
+          console.log('Estos son los datos editados: ', datosEditados);
+          if (datosEditados) {
+            this.editarUsuarioHttp(usuario.id, datosEditados);
+          } else {
+            // undefined
+          }
+        },
+        (error) => {
+          console.log('Error: ', error);
+        }
+      );
+  }
+  editarUsuarioHttp(id, datosEditar) {
+    const usuarioEditado$ = this._usuarioRestService
+      .editar(id, datosEditar);
+    usuarioEditado$
+      .subscribe(
+        (usuarioEdit: any) => {
+          console.log('Usuario editado: ', usuarioEdit);
+          const indice = this.usuarios
+            .findIndex(
+              (usuario) => {
+                return usuario.id === id;
+              }
+            );
+          this.usuarios[indice].nombre = datosEditar.nombre;
+          this.usuarios[indice].apellido = datosEditar.apellido;
+          this.usuarios[indice].nickname = datosEditar.nickname;
+          this.usuarios[indice].correo = datosEditar.correo;
+          this.usuarios[indice].edad = datosEditar.edad;
+          this.usuarios[indice].rol = datosEditar.rol;
+
+        },
+        (error) => {
+          console.log('Error: ', error);
+        }
+      );
+  }
 }
+

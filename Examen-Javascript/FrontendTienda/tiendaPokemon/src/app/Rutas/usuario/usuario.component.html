@@ -1,6 +1,6 @@
 <br>
 <p-card header='{{nickname}} - {{nombre}} {{apellido}}'>
-<h3>{{correo}}</h3>
+  <h3>{{correo}}</h3>
 </p-card>
 <br>
 
@@ -10,13 +10,14 @@
          type="date"
          name="fecha"
          [(ngModel)]="busquedaFecha"
-         pInputText>
+         pInputText
+         style="height: 40px">
   <label for="float-input"></label>
-  <p-button label="Buscar" (onClick)="buscar()"></p-button>
+  <p-button label="Buscar" (onClick)="buscarPorFecha()"></p-button>
 </span>
 <br>
 <p-button label="Nueva Compra" styleClass="ui-button-success"
-(onClick)="abrirCompra()"></p-button>
+          (onClick)="abrirCompra()"></p-button>
 <br>
 <br>
 <p-table [value]="compras"
@@ -39,9 +40,10 @@
       <td>{{compra.id}}</td>
       <td>{{compra.estado}}</td>
       <td>{{compra.fecha}}</td>
-      <td>{{compra.total}}</td>
+      <td>{{compra.total | currency}}</td>
       <td>
-        <p-button label="Visualizar Compra"   styleClass="ui-button-primary"></p-button>
+        <p-button label="Visualizar Compra"   styleClass="ui-button-primary"
+        (onClick)="visualizarCompra(compra)"></p-button>
       </td>
     </tr>
   </ng-template>

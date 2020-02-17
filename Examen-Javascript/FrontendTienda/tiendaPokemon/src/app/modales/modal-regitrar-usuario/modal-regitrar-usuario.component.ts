@@ -22,13 +22,16 @@ export class ModalRegitrarUsuarioComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalRegitrarUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public readonly _httpClient: HttpClient
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
   }
+
   cancelar() {
     this.dialogRef.close();
   }
+
   registrar() {
     const url = environment.url + 'usuario';
     const datos = {
@@ -45,7 +48,7 @@ export class ModalRegitrarUsuarioComponent implements OnInit {
     usuarioIngresadoS
       .subscribe(
         (usuarioIngresado) => {
-          console.log ('Usuario ', this.nombre, 'ingresado exitosamente');
+          console.log('Usuario ', this.nombre, 'ingresado exitosamente');
         },
         (error) => {
           console.log('Error: ', error);
@@ -54,4 +57,12 @@ export class ModalRegitrarUsuarioComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  validarPasswordsIguales(): boolean {
+    if (this.password === this.passwordConfirmacion) {
+      return false;
+    } else {
+      return true;
+    }
+
+  }
 }

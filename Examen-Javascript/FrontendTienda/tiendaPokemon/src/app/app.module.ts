@@ -27,6 +27,8 @@ import {PanelModule} from 'primeng/panel';
 import {CardModule} from 'primeng/card';
 import { ModalSeleccionarPokemonComponent } from './modales/modal-seleccionar-pokemon/modal-seleccionar-pokemon.component';
 import { ModalRegitrarUsuarioComponent } from './modales/modal-regitrar-usuario/modal-regitrar-usuario.component';
+import { ModalVisualizarCompraComponent } from './modales/modal-visualizar-compra/modal-visualizar-compra.component';
+import { ModalEditarUsuarioComponent } from './modales/modal-editar-usuario/modal-editar-usuario.component';
 
 
 
@@ -43,6 +45,8 @@ import { ModalRegitrarUsuarioComponent } from './modales/modal-regitrar-usuario/
     UsuarioAdmComponent,
     ModalSeleccionarPokemonComponent,
     ModalRegitrarUsuarioComponent,
+    ModalVisualizarCompraComponent,
+    ModalEditarUsuarioComponent,
   ],
   entryComponents: [
     ModalEditarPokemonComponent,

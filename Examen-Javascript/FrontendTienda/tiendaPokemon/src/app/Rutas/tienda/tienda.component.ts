@@ -5,6 +5,7 @@ import {ModalSeleccionarPokemonComponent} from "../../modales/modal-seleccionar-
 import {AuthService} from "../../Services/auth/auth.service";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tienda',
@@ -17,18 +18,21 @@ export class TiendaComponent implements OnInit {
   cabeceraTemporal: '';
   cantidad = 1;
   subtotal: number;
-  total = 0;
+  total: number;
   nombre = this._authService.sesion.nombre;
   apellido = this._authService.sesion.apellido;
   id = this._authService.sesion.id;
   direccion = '';
   fecha = '';
   estado = 'CREADO';
+  estadoBoolean = true;
+  compraBoolean = false;
 
   constructor(
     private readonly _matDialog: MatDialog,
     private readonly _authService: AuthService,
     private readonly _httpClient: HttpClient,
+    private readonly _router: Router
   ) {
   }
 
@@ -36,6 +40,7 @@ export class TiendaComponent implements OnInit {
     this.detalleTemporal = [];
   }
   mostrarPokemon() {
+    this.estadoBoolean = false;
     const matDialogRefModalSeleccionarPokemon =  this._matDialog
       .open(
         ModalSeleccionarPokemonComponent,
@@ -64,6 +69,7 @@ export class TiendaComponent implements OnInit {
       );
 
   }
+
   calcularTotal() {
     this.total = 0;
     for (const i in this.detalleTemporal) {
@@ -83,6 +89,9 @@ export class TiendaComponent implements OnInit {
     this.detalleTemporal.splice(index, 1);
   }
   guardarCabecera() {
+    this.compraBoolean = true;
+    this.estado = 'COMPRADO';
+    this.estadoBoolean = true;
     const datosCabecera = {
       idUsuario: this.id,
       estado: this.estado,
@@ -103,6 +112,9 @@ export class TiendaComponent implements OnInit {
           console.log('Error: ', error);
         }
       );
+  }
+  volver() {
+    this._router.navigate(['/usuario']);
   }
   guardarDetalle(idCabeceraRec) {
     const urlDetalle = this.url + 'detalleCarrito';

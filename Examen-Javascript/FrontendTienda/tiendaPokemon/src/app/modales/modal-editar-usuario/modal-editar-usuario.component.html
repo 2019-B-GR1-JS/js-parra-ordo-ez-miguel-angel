@@ -1,0 +1,159 @@
+<h1 mat-dialog-title *ngIf="data">EDITAR USUARIO</h1>
+<div mat-dialog-content>
+  <form #formularioEditar="ngForm" >
+    <div>
+      <label for="nicknameId">
+        Nickname:
+      </label>
+      <input id="nicknameId"
+             type="text"
+             name="nickname"
+             required
+             placeholder="{{nickname}}"
+             title="Llenar el nickname"
+             minlength="3"
+             maxlength="15"
+             [(ngModel)]="nickname"
+             #nicknameInput = "ngModel"
+             style="width: 100%; height: 90%"
+      >
+    </div>
+    <div *ngIf="nicknameInput.touched && nicknameInput.dirty && nicknameInput.errors">
+      <p *ngIf="nicknameInput.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="nicknameInput.errors.minlength ">
+        llenar con un minimo de 3 caracteres
+      </p>
+      <p *ngIf="nicknameInput.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
+    <div>
+      <label for="nombreId">
+        Nombre:
+      </label>
+      <input id="nombreId"
+             type="text"
+             name="nombre"
+             required
+             placeholder="{{nombre}}"
+             title="Llenar el Nombre"
+             minlength="3"
+             maxlength="15"
+             [(ngModel)]="nombre"
+             #nombreInput ="ngModel"
+             style="width: 100%; height: 90%">
+    </div>
+    <div *ngIf="nombreInput.touched && nombreInput.dirty && nombreInput.errors">
+      <p *ngIf="nombreInput.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="nombreInput.errors.minlength ">
+        llenar con un minimo de 2 caracteres
+      </p>
+      <p *ngIf="nombreInput.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
+    <div>
+      <label for="apellidoId">
+        Apellido:
+      </label>
+      <input id="apellidoId"
+             type="text"
+             name="apellido"
+             required
+             placeholder="{{apellido}}"
+             title="Llenar el Apellido"
+             minlength="3"
+             maxlength="15"
+             [(ngModel)]="apellido"
+             #apellidoI = "ngModel"
+             style="width: 100%; height: 90%">
+    </div>
+    <div *ngIf="apellidoI.touched && apellidoI.dirty && apellidoI.errors">
+      <p *ngIf="apellidoI.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="apellidoI.errors.minlength ">
+        llenar con un minimo de 2 caracteres
+      </p>
+      <p *ngIf="apellidoI.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
+    <div>
+      <label for="correoId">
+        Correo:
+      </label>
+      <input id="correoId"
+             type="text"
+             name="correo"
+             email="true"
+             required
+             placeholder="{{correo}}"
+             title="Llenar el correo"
+             [(ngModel)]="correo"
+             #correoI = "ngModel"
+             style="width: 100%; height: 90%">
+    </div>
+    <div *ngIf="correoI.touched && correoI.dirty && correoI.errors">
+      <p *ngIf="correoI.errors.required ">
+        Este campo es requerido.
+      </p>
+    </div>
+    <br>
+    <div>
+      <label for="edadId">
+        Edad:
+      </label>
+      <input id="edadId"
+             type="number"
+             name="edad"
+             pattern="([0-9])+"
+             required
+             placeholder="{{edad}}"
+             title="Llenar la edad"
+             min="0"
+             max="120"
+             [(ngModel)]="edad"
+             #edadI = "ngModel"
+             style="width: 100%; height: 90%">
+    </div>
+    <div *ngIf="edadI.touched && edadI.dirty && edadI.errors">
+      <p *ngIf="edadI.errors.required ">
+        Este campo es requerido.
+    </div>
+    <br>
+    <div>
+      <label for="rol">
+        Rol:
+      </label>
+      <select name="rol"
+              id="rol"
+              required
+              #estadoI = "ngModel"
+              [(ngModel)]="rol"
+      >
+        <option>administrador</option>
+        <option>usuario</option>
+      </select>
+    </div>
+    <div *ngIf="estadoI.touched && estadoI.dirty && estadoI.errors">
+      <p *ngIf="estadoI.errors.required ">
+        Este campo es requerido.
+    </div>
+    <br>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <p-button label="Cancelar" styleClass="ui-button-secondary"
+            (onClick)="cancelar()"></p-button>
+  <p-button label="Aceptar" styleClass="ui-button-sucess"
+            (onClick)="aceptar()"></p-button>
+</div>
+

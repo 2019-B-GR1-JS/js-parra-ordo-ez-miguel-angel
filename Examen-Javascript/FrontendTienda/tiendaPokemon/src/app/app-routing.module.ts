@@ -11,7 +11,7 @@ import {EstaLogueadoAdminPolicy} from "./politicas/esta-logueado-admin.policy";
 
 const routes: Routes = [
   {
-    path:'login',
+    path: 'login',
     component: RutaLoginComponent
   },
   {
@@ -23,11 +23,17 @@ const routes: Routes = [
   },
   {
     path: 'entrenador/:idEntrenador/pokemon',
-    component: PokemonComponent
+    component: PokemonComponent,
+    canActivate: [
+      EstaLogueadoAdminPolicy
+    ]
   },
   {
     path: 'tienda',
-    component: TiendaComponent
+    component: TiendaComponent,
+    canActivate: [
+      EstaLogueadoPolicy
+    ]
   },
   {
     path: 'usuario',

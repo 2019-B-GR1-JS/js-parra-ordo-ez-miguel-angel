@@ -5,6 +5,7 @@ import {ModalEditarPokemonComponent} from "../../modales/modal-editar-pokemon/mo
 import {ModalRegitrarUsuarioComponent} from "../../modales/modal-regitrar-usuario/modal-regitrar-usuario.component";
 import {Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-ruta-login',
@@ -24,8 +25,6 @@ export class RutaLoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
 
   login() {
     const respuestaLogin$ = this._authService.login(this.correo, this.password);
