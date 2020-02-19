@@ -8,42 +8,111 @@
       <input id="nombreId"
              type="text"
              name="nombre"
+             required
+             title="Llenar el Nombre"
+             minlength="3"
+             maxlength="15"
+             placeholder="{{nombre}}"
+             #nombreInput ="ngModel"
              [(ngModel)]="nombre">
-    </div><br>
+    </div>
+    <div *ngIf="nombreInput.touched && nombreInput.dirty && nombreInput.errors">
+      <p *ngIf="nombreInput.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="nombreInput.errors.minlength ">
+        llenar con un minimo de 2 caracteres
+      </p>
+      <p *ngIf="nombreInput.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
     <div>
       <label for="apellidoId">Apellido: </label>
       <input id="apellidoId"
              type="text"
              name="apellido"
-             [(ngModel)]="apellido">
-    </div><br>
+             required
+             placeholder="{{apellido}}"
+             title="Llenar el Apellido"
+             minlength="3"
+             maxlength="15"
+             [(ngModel)]="apellido"
+             #apellidoI = "ngModel">
+    </div>
+    <div *ngIf="apellidoI.touched && apellidoI.dirty && apellidoI.errors">
+      <p *ngIf="apellidoI.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="apellidoI.errors.minlength ">
+        llenar con un minimo de 2 caracteres
+      </p>
+      <p *ngIf="apellidoI.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
     <div>
       <label for="fechaNacimiento">Fecha de nacimiento: </label>
       <input id="fechaNacimiento"
-             type="text"
+             type="date"
+             required
+             placeholder="{{fechaNacimiento}}"
              name="fechaNacimiento"
-             [(ngModel)]="fechaNacimiento">
-    </div><br>
+             [(ngModel)]="fechaNacimiento"
+             #fechaI = "ngModel"
+      >
+    </div>
+    <div *ngIf="fechaI.touched && fechaI.dirty && fechaI.errors">
+      <p *ngIf="fechaI.errors.required ">
+        Este campo es requerido.
+      </p>
+    </div>
+    <br>
     <div>
       <label for="numeroMedalla">Numero de Medallas: </label>
       <input id="numeroMedalla"
-             type="text"
+             type="number"
              name="numeroMedalla"
-             [(ngModel)]="numeroMedalla">
-    </div><br>
+             placeholder="{{numeroMedalla}}"
+             required
+             title="Colocar el numero de medallas"
+             min="0"
+             max="120"
+             [(ngModel)]="numeroMedalla"
+             #medallasId = 'ngModel'>
+    </div>
+    <div *ngIf="medallasId.touched && medallasId.dirty && medallasId.errors">
+      <p *ngIf="medallasId.errors.required ">
+        Este campo es requerido.
+    </div>
+    <br>
     <div>
-      <label for="campeonActual">Nivel: </label>
-      <input id="campeonActual"
-             type="text"
-             name="campeonActual"
-             [(ngModel)]="campeonActual">
-    </div><br>
+      <label for="campeonActual">Campeón actual: </label>
+      <select name="campeonActualol"
+              id="campeonActual"
+              required
+              #campeonI = "ngModel"
+              [(ngModel)]="campeonActual"
+      >
+        <option>Si</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div *ngIf="campeonI.touched && campeonI.dirty && campeonI.errors">
+      <p *ngIf="campeonI.errors.required ">
+        Este campo es requerido.
+    </div>
+    <br>
   </form>
 </div>
 <div mat-dialog-actions>
   <p-button label="Cancelar" styleClass="ui-button-secondary"
             (onClick)="cancelar()"></p-button>
   <p-button label="Aceptar" styleClass="ui-button-sucess"
-            (onClick)="aceptar()"></p-button>
+            (onClick)="aceptar()"
+            [disabled]="formularioEditar.invalid"
+  ></p-button>
 </div>
 

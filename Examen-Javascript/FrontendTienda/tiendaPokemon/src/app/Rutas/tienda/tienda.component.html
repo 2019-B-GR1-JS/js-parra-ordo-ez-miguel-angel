@@ -93,7 +93,7 @@
           <div class="ui-g-5"></div>
           <div class="ui-g-2">
             <p-button label="COMPRAR" styleClass="ui-button-success"
-                      [disabled]="compraFormulario.invalid || estadoBoolean"
+                      [disabled]="compraFormulario.invalid"
                       (onClick)="guardarCabecera()"></p-button>
           </div>
           <div class="ui-g-5"></div>
@@ -110,9 +110,7 @@
                [paginator]="true"
                [rows]="5">
         <ng-template pTemplate="caption">
-          <p-button label="Añadir Compra"
-                    [disabled]="compraDetFormulario.invalid || compraBoolean"
-                    (onClick)="mostrarPokemon()"></p-button>
+          <p-button label="Añadir Compra" (onClick)="mostrarPokemon()"></p-button>
         </ng-template>
         <ng-template pTemplate="header">
           <tr>
@@ -129,7 +127,7 @@
             <td>{{pokemon.precio | currency}}</td>
             <td>
               <input id="cantidad"
-                     type="number"
+                     type="text"
                      min="0"
                      max="1000"
                      name="cantidad"
@@ -144,26 +142,16 @@
                 <p *ngIf="cantidadInput.errors.required ">
                   Este campo es requerido.
                 </p>
-                <p *ngIf="cantidadInput.errors.min">
+                <p *ngIf="cantidadInput.errors.minlength ">
                   llenar con un numero mayor a 0
                 </p>
-                <p *ngIf="cantidadInput.errors.max ">
-                  llenar con un numero menor a 1000
+                <p *ngIf="cantidadInput.errors.maxlength ">
+                  Llenar con un maximo de 200 caracteres
                 </p>
               </div>
 
             </td>
-            <td>
-              <input id="subtotal"
-                     type="text"
-                     name="subtotal"
-                     placeholder="{{pokemon.subtotal | currency}}"
-                     style="width: 80%; height: 150%"
-                     [(ngModel)]="pokemon.subtotal"
-                     disabled=true
-
-              >
-            </td>
+            <td> {{pokemon.subtotal | currency}} </td>
             <td>
               <p-button styleClass="ui-button-danger" label="QUITAR" (onClick)="eliminar(rowIndex) " ></p-button>
             </td>
@@ -172,7 +160,6 @@
       </p-table>
       </form>
     </p-card>
-    <p-button styleClass="ui-button-warning" label="Volver a inicio" (onClick)="volver() " ></p-button>
   </p-tabPanel>
 </p-tabView>
 

@@ -32,7 +32,7 @@ export class TiendaComponent implements OnInit {
     private readonly _matDialog: MatDialog,
     private readonly _authService: AuthService,
     private readonly _httpClient: HttpClient,
-    private readonly _router: Router
+    private readonly _router : Router
   ) {
   }
 
@@ -114,7 +114,7 @@ export class TiendaComponent implements OnInit {
       );
   }
   volver() {
-    this._router.navigate(['/usuario']);
+    this._router.navigate(['/tienda']);
   }
   guardarDetalle(idCabeceraRec) {
     const urlDetalle = this.url + 'detalleCarrito';

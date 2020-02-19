@@ -77,6 +77,9 @@ export class UsuarioComponent implements OnInit {
         }
       );
   }
+  salir() {
+    this._router.navigate(['/login']);
+  }
   abrirCompra() {
     this._router.navigate(['/tienda']);
   }

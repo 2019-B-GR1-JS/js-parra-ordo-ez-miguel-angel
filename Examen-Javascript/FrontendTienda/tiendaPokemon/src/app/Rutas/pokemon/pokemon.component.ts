@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {MatDialog} from '@angular/material/dialog';
 import {PokemonRestService} from '../../Services/pokemon-rest.service';
 import {ModalEditarPokemonComponent} from '../../modales/modal-editar-pokemon/modal-editar-pokemon.component';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -14,13 +14,13 @@ import {ActivatedRoute} from "@angular/router";
 export class PokemonComponent implements OnInit {
   pokemones = [];
   idEntrenador: number;
-  numeroFiltrado = '';
+  numeroFiltrado: number;
   nombreFiltrado = '';
   poderUnoFiltrado = '';
   poderDosFiltrado = '';
   fechacapturaFiltrado = '';
-  nivelFiltrado = '';
-  precioFiltrado = '';
+  nivelFiltrado: number;
+  precioFiltrado: number;
   filas = 3;
   busquedaPokemon = '';
   url = 'http://localhost:1338';
@@ -29,6 +29,7 @@ export class PokemonComponent implements OnInit {
     public readonly _matDialog: MatDialog,
     private readonly _pokemorestService: PokemonRestService,
     private readonly _activatedRoute: ActivatedRoute,
+    private readonly _router: Router,
   ) {
   }
 
@@ -165,7 +166,7 @@ export class PokemonComponent implements OnInit {
           this.pokemones[indice].fechaCaptura = datos.fechaCaptura;
           this.pokemones[indice].nivel = datos.nivel;
           this.pokemones[indice].precio = datos.precio;
-          this.pokemones[indice].idEntrenador = datos.idEntrenador;
+          this.pokemones[indice].idEntrenador.id = datos.idEntrenador;
         },
         (error) => {
           console.log('Error: ', error);
@@ -192,14 +193,12 @@ export class PokemonComponent implements OnInit {
         }
       );
   }
+  volver() {
+    this._router.navigate(['/entrenador']);
+  }
 
   pokemonesFiltrados() {
     return this.pokemones
-      .filter(
-        (pokemon) => {
-          return pokemon.numero.toLowerCase().includes(this.numeroFiltrado.toLowerCase());
-        }
-      )
       .filter(
         (pokemon) => {
           return pokemon.nombre.toLowerCase().includes(this.nombreFiltrado.toLowerCase());
@@ -218,16 +217,6 @@ export class PokemonComponent implements OnInit {
       .filter(
         (pokemon) => {
           return pokemon.fechaCaptura.toLowerCase().includes(this.fechacapturaFiltrado.toLowerCase());
-        }
-      )
-      .filter(
-        (pokemon) => {
-          return pokemon.nivel.toLowerCase().includes(this.nivelFiltrado.toLowerCase());
-        }
-      )
-      .filter(
-        (pokemon) => {
-          return pokemon.precio.toLowerCase().includes(this.precioFiltrado.toLowerCase());
         }
       );
   }

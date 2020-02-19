@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
     numero: {
-      type: 'string'
+      type: 'number'
     },
     nombre: {
       type: 'string'
@@ -24,10 +24,10 @@ module.exports = {
       type: 'string'
     },
     nivel: {
-      type: 'string'
+      type: 'number'
     },
     precio: {
-      type: 'string'
+      type: 'number'
     },
     idEntrenador: {
       model: 'entrenador',

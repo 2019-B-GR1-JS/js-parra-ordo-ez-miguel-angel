@@ -6,6 +6,7 @@ import {ModalEditarEntrenadorComponent} from "../../modales/modal-editar-entrena
 import {ModalEditarPokemonComponent} from "../../modales/modal-editar-pokemon/modal-editar-pokemon.component";
 import {UsuarioRestService} from "../../Services/usuario-rest.service";
 import {ModalEditarUsuarioComponent} from "../../modales/modal-editar-usuario/modal-editar-usuario.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-entrenador',
@@ -23,7 +24,8 @@ export class EntrenadorComponent implements OnInit {
     private readonly _httpClient: HttpClient,
     private readonly _entrenadorRestService: EntrenadorRestService,
     private readonly __matDialog: MatDialog,
-    private readonly _usuarioRestService: UsuarioRestService
+    private readonly _usuarioRestService: UsuarioRestService,
+    private readonly  _router: Router,
   ) { }
 
   ngOnInit() {
@@ -235,6 +237,9 @@ export class EntrenadorComponent implements OnInit {
           console.log('Error: ', error);
         }
       );
+  }
+  salir() {
+    this._router.navigate(['/login']);
   }
   editarUsuarioHttp(id, datosEditar) {
     const usuarioEditado$ = this._usuarioRestService

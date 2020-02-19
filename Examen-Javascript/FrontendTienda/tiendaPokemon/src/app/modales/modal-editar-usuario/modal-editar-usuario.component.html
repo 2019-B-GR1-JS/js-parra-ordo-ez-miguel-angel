@@ -154,6 +154,7 @@
   <p-button label="Cancelar" styleClass="ui-button-secondary"
             (onClick)="cancelar()"></p-button>
   <p-button label="Aceptar" styleClass="ui-button-sucess"
-            (onClick)="aceptar()"></p-button>
+            (onClick)="aceptar()"
+            [disabled]="formularioEditar.invalid"></p-button>
 </div>
 

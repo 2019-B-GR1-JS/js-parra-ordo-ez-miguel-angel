@@ -8,55 +8,153 @@
       <input id="numeroId"
              type="number"
              name="numero"
-             [(ngModel)]="numero">
-    </div><br>
+             placeholder="{{numero}}"
+             required
+             title="Colocar el número que ocupa el pokemón en la pokedex"
+             min="0"
+             max="1000"
+             [(ngModel)]="numero"
+             #numeroId = 'ngModel'>
+    </div>
+    <div *ngIf="numeroId.touched && numeroId.dirty && numeroId.errors">
+      <p *ngIf="numeroId.errors.required ">
+        Este campo es requerido.
+    </div>
+    <br>
     <div>
       <label for="nombreId">Nombre: </label>
       <input id="nombreId"
              type="text"
              name="nombre"
+             required
+             title="Llenar el nombre del pokemon"
+             minlength="3"
+             maxlength="15"
+             placeholder="{{nombre}}"
+             #nombreInput ="ngModel"
              [(ngModel)]="nombre">
-    </div><br>
+    </div>
+    <div *ngIf="nombreInput.touched && nombreInput.dirty && nombreInput.errors">
+      <p *ngIf="nombreInput.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="nombreInput.errors.minlength ">
+        llenar con un minimo de 4 caracteres
+      </p>
+      <p *ngIf="nombreInput.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
     <div>
       <label for="poderUnoId">Poder Uno: </label>
       <input id="poderUnoId"
              type="text"
              name="poderUno"
+             required
+             title="Llenar el poder principal del pokemon"
+             minlength="4"
+             maxlength="15"
+             placeholder="{{poderUno}}"
+             #poderUnoInput ="ngModel"
              [(ngModel)]="poderUno">
-    </div><br>
+    </div>
+    <div *ngIf="poderUnoInput.touched && poderUnoInput.dirty && poderUnoInput.errors">
+      <p *ngIf="poderUnoInput.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="nombreInput.errors.minlength ">
+        llenar con un minimo de 4 caracteres
+      </p>
+      <p *ngIf="nombreInput.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
     <div>
       <label for="poderDos">Poder Dos: </label>
       <input id="poderDos"
              type="text"
              name="poderDos"
+             required
+             title="Llenar el poder secundario del pokemon"
+             minlength="4"
+             maxlength="15"
+             placeholder="{{poderDos}}"
+             #poderDosInput ="ngModel"
              [(ngModel)]="poderDos">
-    </div><br>
+    </div>
+    <div *ngIf="poderDosInput.touched && poderDosInput.dirty && poderDosInput.errors">
+      <p *ngIf="poderDosInput.errors.required ">
+        Este campo es requerido.
+      </p>
+      <p *ngIf="nombreInput.errors.minlength ">
+        llenar con un minimo de 8 caracteres
+      </p>
+      <p *ngIf="nombreInput.errors.maxlength ">
+        Llenar con un maximo de 200 caracteres
+      </p>
+    </div>
+    <br>
     <div>
       <label for="fechaCapturaId">Fecha Captura: </label>
       <input id="fechaCapturaId"
-             type="text"
+             type="date"
              name="fechaCaptura"
-             [(ngModel)]="fechaCaptura">
-    </div><br>
+             required
+             placeholder="{{fechaCaptura}}"
+             [(ngModel)]="fechaCaptura"
+             #fechaI = "ngModel">
+    </div>
+    <div *ngIf="fechaI.touched && fechaI.dirty && fechaI.errors">
+      <p *ngIf="fechaI.errors.required ">
+        Este campo es requerido.
+      </p>
+    </div>
+    <br>
     <div>
       <label for="nivelId">Nivel: </label>
       <input id="nivelId"
-             type="text"
+             type="number"
              name="nivel"
-             [(ngModel)]="nivel">
-    </div><br>
+             placeholder="{{nivel}}"
+             required
+             title="Colocar el nivel del pokemon"
+             min="0"
+             max="120"
+             [(ngModel)]="nivel"
+             #nivelId = 'ngModel'>
+    </div>
+    <div *ngIf="nivelId.touched && nivelId.dirty && nivelId.errors">
+      <p *ngIf="nivelId.errors.required ">
+        Este campo es requerido.
+    </div>
+
+    <br>
     <div>
       <label for="precioId">Precio: </label>
       <input id="precioId"
-             type="text"
+             type="number"
              name="precio"
-             [(ngModel)]="precio">
+             placeholder="{{precio | currency}}"
+             required
+             title="Colocar el precio del pokemon"
+             min="0"
+             max="120"
+             [(ngModel)]="precio"
+             #precioId = 'ngModel'>
+    </div>
+    <div *ngIf="precioId.touched && precioId.dirty && precioId.errors">
+      <p *ngIf="precioId.errors.required ">
+        Este campo es requerido.
     </div><br>
   </form>
 </div>
 <div mat-dialog-actions>
   <p-button label="Cancelar" styleClass="ui-button-secondary"
             (onClick)="cancelar()"></p-button>
-  <p-button label="Aceptar" styleClass="ui-button-sucess"
-            (onClick)="aceptar()"></p-button>
+  <p-button label="Aceptar" styleClass="ui-button-success"
+            (onClick)="aceptar()"
+            [disabled]="formularioEditar.invalid">
+  </p-button>
 </div>
