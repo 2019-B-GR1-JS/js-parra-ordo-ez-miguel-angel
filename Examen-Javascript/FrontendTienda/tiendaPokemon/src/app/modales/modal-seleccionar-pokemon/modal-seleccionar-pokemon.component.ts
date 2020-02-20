@@ -12,6 +12,7 @@ export class ModalSeleccionarPokemonComponent implements OnInit {
   busquedaPokemon = '';
   filas = 5;
   url = 'http://localhost:1338';
+  cantidad = 1;
 
   constructor(
     public dialogRef: MatDialogRef<ModalSeleccionarPokemonComponent>,
@@ -65,7 +66,9 @@ export class ModalSeleccionarPokemonComponent implements OnInit {
       nombre: pokemon.nombre,
       precio: pokemon.precio,
       idEntrenador: pokemon.idEntrenador.id,
-      idPokemon: pokemon.id
+      idPokemon: pokemon.id,
+      cantidad: this.cantidad,
+      subtotal: this.cantidad * pokemon.precio
     });
   }
 }

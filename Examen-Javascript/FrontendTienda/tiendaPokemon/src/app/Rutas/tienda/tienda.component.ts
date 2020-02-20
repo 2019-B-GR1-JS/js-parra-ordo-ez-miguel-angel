@@ -114,7 +114,7 @@ export class TiendaComponent implements OnInit {
       );
   }
   volver() {
-    this._router.navigate(['/tienda']);
+    this._router.navigate(['/usuario']);
   }
   guardarDetalle(idCabeceraRec) {
     const urlDetalle = this.url + 'detalleCarrito';

@@ -104,7 +104,8 @@
              required
              placeholder="{{fechaCaptura}}"
              [(ngModel)]="fechaCaptura"
-             #fechaI = "ngModel">
+             #fechaI = "ngModel"
+             max="2020-02-19">
     </div>
     <div *ngIf="fechaI.touched && fechaI.dirty && fechaI.errors">
       <p *ngIf="fechaI.errors.required ">

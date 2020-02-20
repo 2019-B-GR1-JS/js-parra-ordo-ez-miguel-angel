@@ -62,6 +62,7 @@
              name="fechaNacimiento"
              [(ngModel)]="fechaNacimiento"
              #fechaI = "ngModel"
+             max="2020-02-19"
       >
     </div>
     <div *ngIf="fechaI.touched && fechaI.dirty && fechaI.errors">
